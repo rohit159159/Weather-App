@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Climora</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/gif" href="images/cloudy.gif" sizes="94x94">
+<body>
+  <div id="loader">
+    <div class="loader-container">
+      <span class="loader"></span>
+      <p class="loading-text">Loading<span class="dots">...</span></p>
+    </div>
+  </div>
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="navbar-logo">
+        <img src="images/logo.png" alt="Logo" id="logo-image">
+        <h1>Climora</h1>  
+    </div>
+    <div class="menu-toggle" id="menuToggle">☰</div>
+    <ul class="navbar-links" id="navbarLinks">
+        <li><a href="#homeSection">Home</a></li>
+        <li><a href="#forecastSection">Forecast</a></li>
+        <button class="login-btn" id="loginBtn">Login</button>
+        <button class="signup-btn" id="signupBtn">Signup</button>
+        
+    </ul>
+</nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <section id="homeSection">
+            </section>
+        
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search City...">
+                    <img src="images/reshot-icon-location-refresh-Y6MZ5FB8HX.svg" alt="location" id="location-icon">
+                </div>
+                <button onclick="getWeather()">Search</button>
+                <button id="toggleUnit" onclick="toggleUnits()">°C</button>
+            </header>
+            
+       
+            <!-- Weather Now -->
+            <section class="weather-now card">
+                <h2 id="cityName">City</h2>
+                <div class="weather-main">
+                    <img id="weatherIcon" src="" alt="Weather Icon" class="weather-icon">
+                    <div class="temp-info">
+                        <h1 id="currentTemp">--°C</h1>
+                        <p id="highLow">High: --°  Low: --°</p>
+                        <p id="feelsLike">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2936/2936844.png" alt="Thermometer" class="feel-icon">
+                            Feels like --°
+                        </p>
+                      
+                    </div>
+                </div>      
+                  <!-- Sunrise Sunset -->
+                  <div class="sunrise-sunset card">
+                    <h2>Sunrise and Sunset</h2>
+                    <div class="sun-time">
+                        <span class="emoji">🌄</span>
+                        <p>Sunrise: <span id="sunrise">6:32 AM</span></p>
+                    </div>
+                    <div class="sun-time">
+                        <span class="emoji">🌆</span> <!-- Better Sunset -->
+                        <p>Sunset: <span id="sunset">5:42 PM</span></p>
+                    </div>
+                    <p class="day-length"><span class="emoji">🕒</span> Day Length: <span id="dayLength">--</span></p>
+                </div>
+
+                 <!-- Progress bar -->
+                 <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+            </section>
+
+            <!-- Highlights -->
+               <section class="highlights">
+                <div class="highlight-sign">
+                    <h2>Today's Highlights</h2>
+                </div>
+                
+                <div class="highlight-cards">
+                    <div class="highlight card">
+                        <h3>Chances of Rain</h3>
+                       <div class="progress-circle">
+                            <svg>
+                                <circle cx="50" cy="50" r="45"></circle>
+                                <circle cx="50" cy="50" r="45" id="rainCircle"></circle>   
+                            </svg>
+                            <div class="number" id="chanceRain">--%</div>
+                        </div>
+                        
+                    </div>
+                    <div class="highlight card">
+                        <h3>UV Index</h3>
+                        <div class="progress-circle">
+                            <svg>
+                                <circle cx="50" cy="50" r="45"></circle>
+                                <circle cx="50" cy="50" r="45" id="uvCircle"></circle>
+                            </svg>
+                            <div class="number" id="uvIndex">--</div>
+                        </div>
+                    </div>
+                    <div class="highlight card">
+                        <h3>Wind Status</h3>
+                        <div class="progress-circle">
+                            <svg>
+                                <circle cx="50" cy="50" r="45"></circle>
+                                <circle cx="50" cy="50" r="45" id="windCircle"></circle>
+                            </svg>
+                            <div class="number" id="windStatus">--</div>
+                        </div>
+                    </div>
+                    <div class="highlight card">
+                        <h3>Humidity</h3>
+                        <div class="progress-circle">
+                            <svg>
+                                <circle cx="50" cy="50" r="45"></circle>
+                                <circle cx="50" cy="50" r="45" id="humidityCircle"></circle>
+                            </svg>
+                            <div class="number" id="humidity">--%</div>
+                        </div>
+                    </div>
+                </div>
+            </section>            
+             <!-- Forecast -->
+<section class="forecast-section card" id="forecastSection">
+    <h2>14-day Forecast</h2>
+    <div id="forecastCombined" class="forecast-combined-cards"> </div>
+  </section>
+      
+       <!--24-hours forcast-->
+       <section class="hourly-forecast card">
+        <h2>24-Hour Forecast</h2>
+        <div class="hourly-container" id="hourlyForecast"></div>
+    </section>
+    
+        </main>
+    </div>
+    <!--footer-->
+    <footer class="footer">
+        <div class="marquee">
+          <p>Made by Rohit | Climora 2025  <img src="images/logo.png" alt="Logo" id="footer-logo-image"></p>
+        </div>
+      </footer>
+      
+<!------------------------->
+            <!-- Floating Chatbot Button -->
+            <div id="chatbotLauncher" class="chatbot-launcher"><img src="images/Chatbot-image.png" alt="" id="chatbot-image"></div>
+
+            <!-- Chatbot Container -->
+            <div class="chatbot-wrapper hidden" id="chatbotWrapper">
+              <div class="chat-container">
+                <div class="chat-box" id="chatBox">
+                  <div class="bot-message">👋 Hi! Ask me about the weather in any city.</div>
+                </div>
+                <input type="text" id="userInput" placeholder="Type a city or ask about weather..." />
+                <div class="controls">
+                  <button id="sendBtn">Send</button>
+                  <button id="micBtn">🎤 Voice</button>
+                </div>
+              </div>
+            </div>
+  
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+</html>
+
