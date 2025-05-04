@@ -4,18 +4,23 @@ Climora is an advanced, fully responsive weather forecast web application powere
 
 This app is built using HTML, CSS, and JavaScript, with elegant design components, animated visualizations, and accessibility features. The project includes a floating chatbot assistant to help users get weather updates by simply asking. <br>
 
-# Dashboard.
+# Dashboard. 
+🚀 Live Demo-🔗 [View Live Site on Netlify](http://climora-weather-app.netlify.app)
+ 
 ![image alt](https://github.com/rohit159159/Weather-App/blob/c83140625e78bff0f7d00e0ff2485edecbd39cfe/Weather-screenshot.png)
 
 # Login & Sign-up
 ![image alt](https://github.com/rohit159159/Weather-App/blob/c83140625e78bff0f7d00e0ff2485edecbd39cfe/login.png)![image alt](https://github.com/rohit159159/Weather-App/blob/c83140625e78bff0f7d00e0ff2485edecbd39cfe/login-dark.png)
 
 # 🛠️ Tech Stack:<br>
-*Frontend: HTML, CSS, JavaScript
+**Frontend:** HTML, CSS, JavaScript
 
-*Weather API: Visual Crossing Weather API 🌤️
+**Weather API:** Visual Crossing Weather API 🌤️
 
-*Voice Recognition: Web Speech API 🎤
+**Voice Recognition:** Web Speech API 🎤
+
+ **Netlify** – Hosting and deployment
+
 
 
 # 🌟 Key Features <br>
